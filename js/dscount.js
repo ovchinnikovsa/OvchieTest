@@ -8,26 +8,41 @@
 
 
 // Yor code here ...
+
+// function dscount(str, s1, s2) {
+//     str = str.toLowerCase();
+//     s1 = s1.toLowerCase();
+//     s2 = s2.toLowerCase();
+//     let pos = 0;
+//     let count = 0;
+
+//     while (true) {
+//         let search_pos_for_s1 = str.indexOf(s1, pos);
+//         let search_pos_for_s2 = str.lastIndexOf(s2, search_pos_for_s1+1);
+
+//         if (search_pos_for_s1 == -1) break;
+
+//         if (search_pos_for_s2 !== -1 && search_pos_for_s2 > search_pos_for_s1) count++;
+
+//         pos = search_pos_for_s1 + 1;
+//     }
+
+//     return count
+// }
+
 function dscount(str, s1, s2) {
     str = str.toLowerCase();
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
-    let pos = 0;
+    let symbols = s1 + s2;
+    symbols = symbols.toLowerCase();
     let count = 0;
-
-    while (true) {
-        let search_pos_for_s1 = str.indexOf(s1, pos);
-        let search_pos_for_s2 = str.lastIndexOf(s2, search_pos_for_s1+1);
-
-        if (search_pos_for_s1 == -1) break;
-
-        if (search_pos_for_s2 !== -1 && search_pos_for_s2 > search_pos_for_s1) count++;
-
-        pos = search_pos_for_s1 + 1;
+    
+    for (let i = 0; i < str.length; i++) {
+        if (str.substring(i, i+2) == symbols) count++
     }
 
     return count
 }
+
 // ... //
 
 // Для удобства можно использовать эти тесты:
